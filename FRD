@@ -1,0 +1,277 @@
+Project Overview
+
+Project Name: FashionHub (Placeholder)
+
+Type: Multi-Role E-Commerce Platform
+
+Users:
+
+Buyer (Customer)
+Seller (Brand/Admin)
+
+Design Style:
+
+Premium fashion brand look
+Large hero banners
+Smooth scroll animations
+Modern transitions
+Mobile responsive
+Luxury typography
+Clean white background with elegant color palette
+Buyer Features
+Home Page
+Hero Banner
+Featured Collections
+New Arrivals
+Best Sellers
+Trending Products
+Customer Reviews
+Newsletter Subscription
+AI Fashion Assistant
+Product Listing Page
+Filters
+Category
+Price Range
+Size
+Color
+Brand
+Gender
+Sorting
+Newest
+Price Low to High
+Price High to Low
+Best Selling
+Product Detail Page
+Product Information
+Product Images Carousel
+Zoom Feature
+Product Description
+Available Sizes
+Color Selection
+Stock Status
+Reviews & Ratings
+Actions
+Add to Cart
+Buy Now
+Add to Wishlist
+Cart Page
+Features
+Update Quantity
+Remove Product
+Apply Coupon
+Calculate Tax
+Shipping Cost
+Order Summary
+Checkout Page
+Billing Details
+Name
+Email
+Mobile Number
+Address
+City
+State
+Pincode
+Payment Integration
+
+Support:
+
+UPI
+Google Pay
+PhonePe
+Paytm
+Credit Card
+Debit Card
+Net Banking
+
+Recommended Payment Gateway:
+
+Razorpay
+Cashfree
+Stripe
+User Account
+Authentication
+Register
+Login
+Forgot Password
+Email Verification
+OTP Verification
+Profile
+Edit Profile
+Manage Addresses
+View Orders
+Wishlist
+Saved Payment Methods
+AI Fashion Chatbot
+Functions
+Product Recommendations
+Size Suggestions
+Order Tracking
+FAQs
+Fashion Styling Tips
+
+Examples:
+
+"Show me black hoodies under ₹1000"
+"Suggest matching pants for this shirt"
+"Track my order"
+
+Recommended AI:
+
+OpenAI API
+Seller Dashboard
+Dashboard Overview
+
+Show:
+
+Total Sales
+Total Revenue
+Orders
+Products
+Customers
+Product Management
+Current Scenario
+
+Seller currently has 4 products.
+
+Dashboard should include:
+
+Product Table
+Product	Stock	Price	Status
+Buttons
+
+✅ Add Product
+
+✅ Edit Product
+
+✅ Delete Product
+
+Future Expansion
+
+Seller can add unlimited products later.
+
+Fields:
+
+Product Name
+Description
+Price
+Discount
+Category
+Images
+Stock Quantity
+Sizes
+Colors
+Order Management
+
+Seller can:
+
+View Orders
+Update Status
+Confirm Order
+Ship Order
+Delivered
+Cancel Order
+Customer Management
+
+Seller can:
+
+View Customers
+Purchase History
+Contact Details
+Analytics
+
+Charts:
+
+Monthly Sales
+Revenue
+Product Performance
+Top Selling Products
+Admin Panel
+Manage
+Users
+Sellers
+Products
+Orders
+Payments
+Coupons
+Reviews
+Database Structure
+Users
+id
+name
+email
+phone
+password
+role
+Products
+id
+name
+description
+price
+stock
+category
+image
+seller_id
+Orders
+id
+user_id
+total_amount
+payment_status
+order_status
+Cart
+id
+user_id
+product_id
+quantity
+Tech Stack
+Frontend
+Next.js
+React
+Tailwind CSS
+Framer Motion
+Backend
+Node.js
+Express.js
+Database
+MongoDB
+Authentication
+JWT
+OTP Verification
+Payment
+Razorpay
+Hosting
+Frontend: Vercel
+Backend: Render
+Database: MongoDB Atlas
+Folder Structure
+fashion-store/
+│
+├── frontend/
+│   ├── pages
+│   ├── components
+│   ├── layouts
+│   ├── hooks
+│   └── services
+│
+├── backend/
+│   ├── controllers
+│   ├── routes
+│   ├── models
+│   ├── middleware
+│   └── utils
+│
+└── database/
+Additional Premium Features
+Dark Mode
+Wishlist
+Recently Viewed Products
+Product Reviews
+Discount Coupons
+Push Notifications
+Email Notifications
+AI Chatbot
+Social Login (Google)
+SEO Optimization
+PWA Support
+Inventory Alerts
+
+This scope is suitable for a professional portfolio project and can later scale from 4 products to hundreds or thousands of clothing items without changing the core architecture.

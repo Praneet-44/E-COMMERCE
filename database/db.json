@@ -1,0 +1,677 @@
+{
+  "users": [
+    {
+      "id": "u-admin-1",
+      "name": "Alex Mercer",
+      "email": "admin@fashionhub.com",
+      "phone": "9876543210",
+      "password": "$2a$10$abcdefghijklmnopqrstuvwx.somehashedpassword",
+      "role": "admin"
+    },
+    {
+      "id": "u-seller-1",
+      "name": "Vanguard Apparel Co.",
+      "email": "seller@fashionhub.com",
+      "phone": "9876543211",
+      "password": "$2a$10$abcdefghijklmnopqrstuvwx.somehashedpassword",
+      "role": "seller"
+    },
+    {
+      "id": "u-buyer-1",
+      "name": "Jane Doe",
+      "email": "buyer@fashionhub.com",
+      "phone": "9876543212",
+      "password": "$2a$10$abcdefghijklmnopqrstuvwx.somehashedpassword",
+      "role": "buyer"
+    },
+    {
+      "id": "use-1781855643890-800",
+      "_id": "use-1781855643890-800",
+      "name": "praneet",
+      "email": "praneetmoon@gmail.com",
+      "phone": "0980970790",
+      "password": "$2a$10$3UX1lQH8OMTtGuULINd/cuVVC/1..H2d8NMiYPSVFKvHCPfCQrWee",
+      "role": "buyer",
+      "createdAt": "2026-06-19T07:54:03.891Z",
+      "updatedAt": "2026-06-19T07:54:03.891Z"
+    },
+    {
+      "id": "use-1781855721165-539",
+      "_id": "use-1781855721165-539",
+      "name": "knalkas",
+      "email": "pwhwhh@1233",
+      "phone": "casncnkla",
+      "password": "$2a$10$BCklo4G5..3pJk5fnPUVPuSjrp6YEzj5t5dhoqhxbP4fAW9F151k6",
+      "role": "buyer",
+      "createdAt": "2026-06-19T07:55:21.165Z",
+      "updatedAt": "2026-06-19T07:55:21.165Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "p-1",
+      "name": "Vanguard Charcoal Overcoat",
+      "description": "Crafted from a premium wool blend, this structured overcoat offers a sharp silhouette and timeless elegance. Features a double-breasted button closure, tailored notch lapels, and deep hand-warmer pockets. The ultimate layer for the modern professional.",
+      "price": 1,
+      "discount": 10,
+      "stock": 39,
+      "category": "Outerwear",
+      "images": [
+        "https://images.unsplash.com/photo-1544022613-e87ca75a784a?q=80&w=600&auto=format&fit=crop"
+      ],
+      "seller_id": "u-seller-1",
+      "sizes": [
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Charcoal",
+        "Black"
+      ],
+      "gender": "Men",
+      "status": "Active",
+      "updatedAt": "2026-07-25T04:10:35.070Z"
+    },
+    {
+      "id": "p-2",
+      "name": "Aether Silk Dress Shirt",
+      "description": "Woven with high-grade mulberry silk, the Aether Dress Shirt drapes elegantly and feels exceptionally soft against the skin. Tailored in a modern, streamlined cut with mother-of-pearl buttons and adjustable mitered cuffs.",
+      "price": 2499,
+      "discount": 0,
+      "stock": 28,
+      "category": "Shirts",
+      "images": [
+        "https://images.unsplash.com/photo-1620012253295-c05518e99309?q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=600&auto=format&fit=crop"
+      ],
+      "seller_id": "u-seller-1",
+      "sizes": [
+        "S",
+        "M",
+        "L"
+      ],
+      "colors": [
+        "Cream",
+        "White",
+        "Navy"
+      ],
+      "gender": "Unisex",
+      "status": "Active",
+      "updatedAt": "2026-06-18T07:28:33.978Z"
+    },
+    {
+      "id": "p-3",
+      "name": "Nomad Tailored Chinos",
+      "description": "Constructed from stretch-infused twill cotton, these trousers balance comfort and structure. Pre-washed for a soft handle, they feature clean flat-front detailing, a mid-rise waist, and functional secure-zip rear pockets.",
+      "price": 1999,
+      "discount": 15,
+      "stock": 25,
+      "category": "Pants",
+      "images": [
+        "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop"
+      ],
+      "seller_id": "u-seller-1",
+      "sizes": [
+        "30",
+        "32",
+        "34"
+      ],
+      "colors": [
+        "Beige",
+        "Olive"
+      ],
+      "gender": "Men",
+      "status": "Active"
+    },
+    {
+      "id": "p-4",
+      "name": "Elysian Cashmere Knit Hoodie",
+      "description": "Indulge in absolute luxury with our premium Mongolian cashmere knit hoodie. Combining athletic utility with high-end fabric, it features a relaxed drop-shoulder design, dual-knit lined hood, and ribbed cuffs.",
+      "price": 3499,
+      "discount": 5,
+      "stock": 9,
+      "category": "Hoodies",
+      "images": [
+        "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=600&auto=format&fit=crop"
+      ],
+      "seller_id": "u-seller-1",
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Heather Grey",
+        "Black"
+      ],
+      "gender": "Women",
+      "status": "Active",
+      "updatedAt": "2026-06-16T05:34:31.942Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-1",
+      "user_id": "u-buyer-1",
+      "items": [
+        {
+          "product_id": "p-2",
+          "name": "Aether Silk Dress Shirt",
+          "quantity": 1,
+          "price": 2499,
+          "color": "Cream",
+          "size": "M"
+        }
+      ],
+      "total_amount": 2699,
+      "discount_amount": 0,
+      "tax": 120,
+      "shipping": 80,
+      "billing_details": {
+        "name": "Jane Doe",
+        "email": "buyer@fashionhub.com",
+        "phone": "9876543212",
+        "address": "Flat 402, Sunset Heights",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pincode": "400001"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Shipped",
+      "created_at": "2026-06-10T14:30:00Z",
+      "updatedAt": "2026-06-16T06:28:35.794Z"
+    },
+    {
+      "id": "ord-2",
+      "user_id": "u-buyer-1",
+      "items": [
+        {
+          "product_id": "p-4",
+          "name": "Elysian Cashmere Knit Hoodie",
+          "quantity": 1,
+          "price": 3324,
+          "color": "Black",
+          "size": "L"
+        }
+      ],
+      "total_amount": 3524,
+      "discount_amount": 175,
+      "tax": 150,
+      "shipping": 50,
+      "billing_details": {
+        "name": "Jane Doe",
+        "email": "buyer@fashionhub.com",
+        "phone": "9876543212",
+        "address": "Flat 402, Sunset Heights",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pincode": "400001"
+      },
+      "payment_method": "Credit Card",
+      "payment_status": "Paid",
+      "order_status": "Shipped",
+      "created_at": "2026-06-14T09:15:00Z"
+    },
+    {
+      "id": "ord-1781588072005-146",
+      "_id": "ord-1781588072005-146",
+      "user_id": "u-seller-1",
+      "items": [
+        {
+          "product_id": "p-4",
+          "name": "Elysian Cashmere Knit Hoodie",
+          "quantity": 1,
+          "price": 3324.0499999999997,
+          "color": "Heather Grey",
+          "size": "S"
+        }
+      ],
+      "total_amount": 3922,
+      "discount_amount": 0,
+      "tax": 598,
+      "shipping": 0,
+      "billing_details": {
+        "name": "Vanguard Apparel Co.",
+        "email": "seller@fashionhub.com",
+        "phone": "9876543211",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "COD",
+      "payment_status": "Paid",
+      "order_status": "Cancelled",
+      "createdAt": "2026-06-16T05:34:32.005Z",
+      "updatedAt": "2026-06-18T07:55:53.452Z"
+    },
+    {
+      "id": "ord-1781588112910-584",
+      "_id": "ord-1781588112910-584",
+      "user_id": "u-seller-1",
+      "items": [
+        {
+          "product_id": "p-1",
+          "name": "Vanguard Charcoal Overcoat",
+          "quantity": 1,
+          "price": 4499.1,
+          "color": "Charcoal",
+          "size": "M"
+        }
+      ],
+      "total_amount": 5309,
+      "discount_amount": 0,
+      "tax": 810,
+      "shipping": 0,
+      "billing_details": {
+        "name": "Vanguard Apparel Co.",
+        "email": "seller@fashionhub.com",
+        "phone": "9876543211",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Confirmed",
+      "createdAt": "2026-06-16T05:35:12.910Z",
+      "updatedAt": "2026-06-16T05:35:12.910Z"
+    },
+    {
+      "id": "ord-1781593523068-721",
+      "_id": "ord-1781593523068-721",
+      "user_id": "u-seller-1",
+      "items": [
+        {
+          "product_id": "p-2",
+          "name": "Aether Silk Dress Shirt",
+          "quantity": 1,
+          "price": 2499,
+          "color": "Cream",
+          "size": "S"
+        }
+      ],
+      "total_amount": 2949,
+      "discount_amount": 0,
+      "tax": 450,
+      "shipping": 0,
+      "billing_details": {
+        "name": "Vanguard Apparel Co.",
+        "email": "seller@fashionhub.com",
+        "phone": "9876543211",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Confirmed",
+      "createdAt": "2026-06-16T07:05:23.068Z",
+      "updatedAt": "2026-06-16T07:05:23.068Z"
+    },
+    {
+      "id": "ord-1781767714001-623",
+      "_id": "ord-1781767714001-623",
+      "user_id": "u-seller-1",
+      "items": [
+        {
+          "product_id": "p-2",
+          "name": "Aether Silk Dress Shirt",
+          "quantity": 1,
+          "price": 2499,
+          "color": "Cream",
+          "size": "S"
+        }
+      ],
+      "total_amount": 2949,
+      "discount_amount": 0,
+      "tax": 450,
+      "shipping": 0,
+      "billing_details": {
+        "name": "Vanguard Apparel Co.",
+        "email": "seller@fashionhub.com",
+        "phone": "9876543211",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Confirmed",
+      "createdAt": "2026-06-18T07:28:34.001Z",
+      "updatedAt": "2026-06-18T07:28:34.001Z"
+    },
+    {
+      "id": "ord-1781768470743-970",
+      "_id": "ord-1781768470743-970",
+      "user_id": "u-seller-1",
+      "items": [
+        {
+          "product_id": "p-1",
+          "name": "Vanguard Charcoal Overcoat",
+          "quantity": 1,
+          "price": 0.9,
+          "color": "Charcoal",
+          "size": "M"
+        }
+      ],
+      "total_amount": 151,
+      "discount_amount": 0,
+      "tax": 0,
+      "shipping": 150,
+      "billing_details": {
+        "name": "PRANEET.K",
+        "email": "praneetkarthikeyan@gmail.com",
+        "phone": "09843264334",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Confirmed",
+      "createdAt": "2026-06-18T07:41:10.744Z",
+      "updatedAt": "2026-06-18T07:41:10.744Z"
+    },
+    {
+      "id": "ord-1781768900705-394",
+      "_id": "ord-1781768900705-394",
+      "user_id": "u-seller-1",
+      "items": [
+        {
+          "product_id": "p-1",
+          "name": "Vanguard Charcoal Overcoat",
+          "quantity": 2,
+          "price": 0.9,
+          "color": "Black",
+          "size": "M"
+        }
+      ],
+      "total_amount": 152,
+      "discount_amount": 0,
+      "tax": 0,
+      "shipping": 150,
+      "billing_details": {
+        "name": "PRANEET.K",
+        "email": "praneetkarthikeyan@gmail.com",
+        "phone": "09843264334",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Confirmed",
+      "createdAt": "2026-06-18T07:48:20.705Z",
+      "updatedAt": "2026-06-18T07:48:20.705Z"
+    },
+    {
+      "id": "ord-1781769331986-413",
+      "_id": "ord-1781769331986-413",
+      "user_id": "u-seller-1",
+      "items": [
+        {
+          "product_id": "p-1",
+          "name": "Vanguard Charcoal Overcoat",
+          "quantity": 1,
+          "price": 0.9,
+          "color": "Charcoal",
+          "size": "M"
+        }
+      ],
+      "total_amount": 151,
+      "discount_amount": 0,
+      "tax": 0,
+      "shipping": 150,
+      "billing_details": {
+        "name": "Vanguard Apparel Co.",
+        "email": "seller@fashionhub.com",
+        "phone": "9876543211",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Confirmed",
+      "createdAt": "2026-06-18T07:55:31.987Z",
+      "updatedAt": "2026-06-18T07:55:31.987Z"
+    },
+    {
+      "id": "ord-1781769391894-538",
+      "_id": "ord-1781769391894-538",
+      "user_id": "u-seller-1",
+      "items": [
+        {
+          "product_id": "p-1",
+          "name": "Vanguard Charcoal Overcoat",
+          "quantity": 1,
+          "price": 0.9,
+          "color": "Charcoal",
+          "size": "M"
+        }
+      ],
+      "total_amount": 151,
+      "discount_amount": 0,
+      "tax": 0,
+      "shipping": 150,
+      "billing_details": {
+        "name": "Vanguard Apparel Co.",
+        "email": "seller@fashionhub.com",
+        "phone": "9876543211",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Confirmed",
+      "createdAt": "2026-06-18T07:56:31.894Z",
+      "updatedAt": "2026-06-18T07:56:31.894Z"
+    },
+    {
+      "id": "ord-1781769570220-282",
+      "_id": "ord-1781769570220-282",
+      "user_id": "u-seller-1",
+      "items": [
+        {
+          "product_id": "p-1",
+          "name": "Vanguard Charcoal Overcoat",
+          "quantity": 1,
+          "price": 0.9,
+          "color": "Charcoal",
+          "size": "M"
+        }
+      ],
+      "total_amount": 151,
+      "discount_amount": 0,
+      "tax": 0,
+      "shipping": 150,
+      "billing_details": {
+        "name": "Vanguard Apparel Co.",
+        "email": "seller@fashionhub.com",
+        "phone": "9876543211",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Pending",
+      "createdAt": "2026-06-18T07:59:30.232Z",
+      "updatedAt": "2026-06-18T08:00:10.289Z"
+    },
+    {
+      "id": "ord-1781846817839-663",
+      "_id": "ord-1781846817839-663",
+      "user_id": "u-seller-1",
+      "items": [
+        {
+          "product_id": "p-1",
+          "name": "Vanguard Charcoal Overcoat",
+          "quantity": 1,
+          "price": 0.9,
+          "color": "Charcoal",
+          "size": "M"
+        }
+      ],
+      "total_amount": 2,
+      "discount_amount": 0,
+      "tax": 0,
+      "shipping": 1,
+      "billing_details": {
+        "name": "Vanguard Apparel Co.",
+        "email": "seller@fashionhub.com",
+        "phone": "9876543211",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Confirmed",
+      "createdAt": "2026-06-19T05:26:57.839Z",
+      "updatedAt": "2026-06-19T05:27:13.383Z"
+    },
+    {
+      "id": "ord-1781846956386-350",
+      "_id": "ord-1781846956386-350",
+      "user_id": "u-buyer-1",
+      "items": [
+        {
+          "product_id": "p-1",
+          "name": "Vanguard Charcoal Overcoat",
+          "quantity": 1,
+          "price": 0.9,
+          "color": "Charcoal",
+          "size": "M"
+        }
+      ],
+      "total_amount": 2,
+      "discount_amount": 0,
+      "tax": 0,
+      "shipping": 1,
+      "billing_details": {
+        "name": "Jane Doe",
+        "email": "buyer@fashionhub.com",
+        "phone": "9876543212",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Confirmed",
+      "createdAt": "2026-06-19T05:29:16.386Z",
+      "updatedAt": "2026-06-19T05:30:01.182Z"
+    },
+    {
+      "id": "ord-1781849223730-907",
+      "_id": "ord-1781849223730-907",
+      "user_id": "u-buyer-1",
+      "items": [
+        {
+          "product_id": "p-1",
+          "name": "Vanguard Charcoal Overcoat",
+          "quantity": 2,
+          "price": 0.9,
+          "color": "Charcoal",
+          "size": "M"
+        }
+      ],
+      "total_amount": 3,
+      "discount_amount": 0,
+      "tax": 0,
+      "shipping": 1,
+      "billing_details": {
+        "name": "Jane Doe",
+        "email": "buyer@fashionhub.com",
+        "phone": "9876543212",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Paid",
+      "order_status": "Confirmed",
+      "createdAt": "2026-06-19T06:07:03.730Z",
+      "updatedAt": "2026-06-19T06:07:44.999Z"
+    },
+    {
+      "id": "ord-1784952635091-960",
+      "_id": "ord-1784952635091-960",
+      "user_id": "u-seller-1",
+      "items": [
+        {
+          "product_id": "p-1",
+          "name": "Vanguard Charcoal Overcoat",
+          "quantity": 1,
+          "price": 0.9,
+          "color": "Charcoal",
+          "size": "M"
+        }
+      ],
+      "total_amount": 2,
+      "discount_amount": 0,
+      "tax": 0,
+      "shipping": 1,
+      "billing_details": {
+        "name": "Vanguard Apparel Co.",
+        "email": "seller@fashionhub.com",
+        "phone": "9876543211",
+        "address": "79 Murgan Kovil Street Avrampalayam , coimbatore 641006",
+        "city": "Coimbatore",
+        "state": "Tamil Nadu",
+        "pincode": "641006"
+      },
+      "payment_method": "UPI",
+      "payment_status": "Pending",
+      "order_status": "Pending",
+      "createdAt": "2026-07-25T04:10:35.091Z",
+      "updatedAt": "2026-07-25T04:10:35.091Z"
+    }
+  ],
+  "carts": [],
+  "reviews": [
+    {
+      "id": "rev-1",
+      "product_id": "p-1",
+      "user_name": "Marcus Aurelius",
+      "rating": 5,
+      "comment": "Outstanding tailoring. The fit is perfect and the fabric is extremely high quality. Perfect for cold mornings.",
+      "created_at": "2026-05-15T12:00:00.000Z"
+    },
+    {
+      "id": "rev-2",
+      "product_id": "p-1",
+      "user_name": "Sonia Bhatia",
+      "rating": 4,
+      "comment": "Very stylish and heavy coat. The charcoal color looks highly premium.",
+      "created_at": "2026-06-02T10:15:00.000Z"
+    },
+    {
+      "id": "rev-3",
+      "product_id": "p-2",
+      "user_name": "John Davis",
+      "rating": 5,
+      "comment": "Best shirt I have ever owned. The silk finish is beautiful.",
+      "created_at": "2026-06-01T08:30:00.000Z"
+    }
+  ]
+}

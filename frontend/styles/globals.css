@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white text-neutral-800 font-sans transition-colors duration-300;
+  }
+  
+  body.dark {
+    @apply bg-neutral-950 text-neutral-100;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-wide;
+  }
+}
+
+/* Premium Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-neutral-100 dark:bg-neutral-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-300 dark:bg-neutral-700 rounded-full hover:bg-luxury-accent transition-colors;
+}
+
+/* Custom Glassmorphism Utility */
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.dark .glass {
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Smooth zoom transition helper */
+.zoom-image {
+  @apply transition-transform duration-700 ease-out;
+}
+.zoom-image:hover {
+  @apply scale-105;
+}
+
+/* Luxury button style */
+.btn-luxury {
+  @apply relative overflow-hidden px-6 py-3 border border-neutral-800 dark:border-neutral-200 text-sm uppercase tracking-widest font-medium transition-all duration-300;
+}
+.btn-luxury::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-[2px] bg-luxury-accent transition-all duration-300;
+}
+.btn-luxury:hover::after {
+  @apply w-full;
+}

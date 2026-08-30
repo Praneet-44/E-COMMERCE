@@ -1,0 +1,68 @@
+# FashionHub Platform Implementation Walkthrough
+
+The **FashionHub** multi-role fashion e-commerce application is fully built, compiled, and verified. It is now actively running locally in your workspace!
+
+---
+
+## 📂 Project Architecture
+
+```
+d:\PKSS_COTHING\
+├── setup_node.py          # Portable Node.js extraction logic
+├── run.py                 # Multi-server concurrent startup runner
+├── database/
+│   └── db.json            # Seeded local JSON database
+├── backend/               # Express.js REST API
+│   ├── server.js          # App entrypoint
+│   ├── middleware/        # JWT Authentication
+│   ├── models/            # Hybrid Database Schemas
+│   ├── controllers/       # Controller logic (Products, AI, Auth, Orders)
+│   └── routes/            # Route declarations
+└── frontend/              # Next.js Pages-Router Application
+    ├── tailwind.config.js # Customized styling rules
+    ├── components/        # Layout, Navbar, Footer, AI Chatbot drawer
+    ├── pages/             # Pages (Auth, Home, Catalog, Details, Cart, Checkout, dashboards)
+    └── services/api.js    # API service client
+```
+
+---
+
+## ⚡ Core Features Implemented
+
+### 1. Hybrid Database Adapter (`backend/utils/db.js`)
+To guarantee an out-of-the-box run without forcing system database installs, the backend features a Mongoose-compatible schema wrapper. It connects to MongoDB if running, but otherwise defaults to storing records dynamically inside `database/db.json` with standard Mongoose API mock support (CRUD, query filters, search, sort).
+
+### 2. Personal AI Fashion Assistant (`frontend/components/AIChatbot.js` & `backend/controllers/aiController.js`)
+Accessible via the floating bubble on any page, the chatbot assists with:
+*   **Size Recommendations**: Inputting height/weight outputs suggestions tailored to the silhouette frame.
+*   **Order Tracking**: Searching by Order ID pulls the latest shipping stage directly from the database.
+*   **Color Matching & Styling**: Provides accessory matching ideas.
+*   **Product Recommendations**: Searches the catalog for key items (e.g. black hoodies under ₹4000) and displays clickable mini-cards inside the drawer.
+
+### 3. Seller Dashboard & Analytics (`frontend/pages/seller.js`)
+Provides:
+*   **Sales Revenue charts**: Custom SVG line-charts generated directly from client invoices.
+*   **Product CRUD controls**: Modal overlays for uploading new designs or adjusting prices/stock.
+*   **Order Management**: Transitioning client states (Confirmed ➔ Shipped ➔ Delivered ➔ Cancelled).
+
+---
+
+## 🧪 Verification & Manual Testing Guide
+
+The local development servers are actively listening:
+*   **Frontend Client**: [http://localhost:3000](http://localhost:3000)
+*   **Backend Server**: [http://localhost:5000](http://localhost:5000)
+
+### 🔑 Pre-Seeded Portals for Evaluation
+To explore role privileges, navigate to the **Sign In** page and use the **Quick Evaluation Portals** buttons to log in instantly:
+
+| Account Type | Email | Password | Privileges / Features |
+| :--- | :--- | :--- | :--- |
+| **Buyer (Customer)** | `buyer@fashionhub.com` | `admin123` | Cart, Wishlist, Checkout, AI Order Tracking, Reviews |
+| **Seller (Brand)** | `seller@fashionhub.com` | `admin123` | Dashboard Metrics, SVG Revenue Charts, Product CRUD, Order Statuses |
+| **Admin (Alex)** | `admin@fashionhub.com` | `admin123` | Toggle User Roles (Seller/Buyer), Create Promo Coupons |
+
+### 🛠️ Step-by-Step Test Flows
+1.  **Shopping Experience**: Browse [Collections Catalog](http://localhost:3000/products), use the filters sidebar, click a product to test the **magnifying zoom**, add elements, apply coupons (e.g. `FASHION20`), scan the **UPI QR Code** mockup, and complete checkout.
+2.  **AI stylist**: Click the floating assistant bubble, type: `"Suggest a size for height 6ft and weight 80kg"`, or `"Track my order ord-2"`.
+3.  **Seller actions**: Sign in as the seller, view the metrics charts, click **Add Product** to write a new listing, edit active stocks, or change shipping milestones.
