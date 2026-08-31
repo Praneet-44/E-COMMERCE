@@ -1,7 +1,17 @@
+const path = require('path');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   webpack: (config, { isServer }) => {
+    // Add module resolution paths so backend files imported by API routes find node_modules
+    config.resolve.modules = [
+      path.resolve(__dirname, 'node_modules'),
+      path.resolve(__dirname, '../backend/node_modules'),
+      path.resolve(__dirname, '../node_modules'),
+      'node_modules',
+    ];
+
     config.externals.push({
       'aws4': 'commonjs aws4',
       'snappy': 'commonjs snappy',
