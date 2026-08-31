@@ -2,12 +2,27 @@ const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
 
-const DB_FILE_PATH = path.join(__dirname, '../../database/db.json');
+const isVercel = Boolean(process.env.VERCEL || process.env.NOW_BUILDER);
+const DEFAULT_DB_PATH = path.join(__dirname, '../../database/db.json');
+const DB_FILE_PATH = isVercel ? path.join('/tmp', 'db.json') : DEFAULT_DB_PATH;
 let useMock = true;
 
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/fashionhub';
 
 function connectDB() {
+  // If running on Vercel and using mock DB, ensure /tmp/db.json is initialized from DEFAULT_DB_PATH
+  if (isVercel && !fs.existsSync(DB_FILE_PATH)) {
+    try {
+      if (fs.existsSync(DEFAULT_DB_PATH)) {
+        fs.copyFileSync(DEFAULT_DB_PATH, DB_FILE_PATH);
+      } else {
+        fs.writeFileSync(DB_FILE_PATH, JSON.stringify({ users: [], products: [], orders: [], carts: [], reviews: [] }, null, 2), 'utf-8');
+      }
+    } catch (e) {
+      console.error('[DB] Failed to seed /tmp/db.json on Vercel:', e);
+    }
+  }
+
   if (process.env.USE_MOCK_DB === 'true') {
     console.log('[DB] Using local JSON File Database (forced by USE_MOCK_DB env)');
     useMock = true;
@@ -36,6 +51,7 @@ function connectDB() {
     }
   });
 }
+
 
 // Mock Model Class to replicate Mongoose query patterns
 class MockModel {

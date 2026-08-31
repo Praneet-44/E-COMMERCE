@@ -49,7 +49,12 @@ app.get('/', (req, res) => {
   });
 });
 
-// Start listening
-app.listen(PORT, () => {
-  console.log(`[Server] FashionHub active on port ${PORT}`);
-});
+// Start listening only when executed directly (not when required as a module/serverless handler)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`[Server] FashionHub active on port ${PORT}`);
+  });
+}
+
+module.exports = app;
+

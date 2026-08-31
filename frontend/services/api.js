@@ -1,4 +1,12 @@
-const API_BASE = 'http://localhost:5000/api';
+const getApiBase = () => {
+  if (process.env.NEXT_PUBLIC_API_URL) {
+    return process.env.NEXT_PUBLIC_API_URL;
+  }
+  return '/api';
+};
+
+const API_BASE = getApiBase();
+
 
 const getHeaders = () => {
   const headers = {

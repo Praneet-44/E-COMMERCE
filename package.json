@@ -1,12 +1,11 @@
 {
-  "name": "fashionhub-frontend",
+  "name": "fashionhub-monorepo",
   "version": "1.0.0",
-  "description": "Next.js Frontend & Express API for FashionHub Platform",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3000",
-    "build": "next build",
-    "start": "next start -p 3000"
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "cd frontend && npm run build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
