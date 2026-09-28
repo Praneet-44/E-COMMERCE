@@ -2,19 +2,33 @@ import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, X, Send, Sparkles, ShoppingBag } from 'lucide-react';
 import Link from 'next/link';
 import { api } from '../services/api';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function AIChatbot() {
+  const { t, locale } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    {
-      sender: 'bot',
-      text: "Welcome to the FashionHub Personal Styling Service. I am your digital AI Stylist.\n\nHow may I help elevate your wardrobe today? Feel free to ask about sizes, styles, order status, or request custom recommendations.",
-      products: []
-    }
-  ]);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
+
+  // Initialize bot greeting based on active language
+  useEffect(() => {
+    setMessages([
+      {
+        sender: 'bot',
+        text: t('chatbot.subtitle', 'Welcome to the FashionHub Personal Styling Service. How may I help elevate your wardrobe today?'),
+        products: []
+      }
+    ]);
+  }, [locale]);
+
+  // Listen for custom event to open chatbot
+  useEffect(() => {
+    const handleOpen = () => setIsOpen(true);
+    window.addEventListener('open-chatbot', handleOpen);
+    return () => window.removeEventListener('open-chatbot', handleOpen);
+  }, []);
 
   // Auto-scroll to bottom
   useEffect(() => {
@@ -43,7 +57,7 @@ export default function AIChatbot() {
     } catch (err) {
       setMessages(prev => [...prev, {
         sender: 'bot',
-        text: "I apologize. I am having trouble connecting to our digital archives at the moment. Please ensure the backend server is active.",
+        text: t('common.error', 'I apologize. I am having trouble connecting to our digital archives at the moment.'),
         products: []
       }]);
     } finally {
@@ -56,10 +70,9 @@ export default function AIChatbot() {
   };
 
   const sampleSuggestions = [
-    "Size suggestion for Height 5'10\" & Weight 72kg",
-    "Show me overcoats under ₹6000",
-    "What matches with a cream silk shirt?",
-    "Track my order ord-2"
+    t('chatbot.q1', 'What size should I choose for outerwear?'),
+    t('chatbot.q2', 'Suggest an outfit for a formal evening event'),
+    t('chatbot.q3', 'What are the trending fashion colors this season?'),
   ];
 
   return (
@@ -68,7 +81,7 @@ export default function AIChatbot() {
       <button
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 z-50 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 p-4 rounded-full shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center border border-luxury-accent/30"
-        aria-label="Open AI Assistant"
+        aria-label={t('chatbot.title', 'AI Fashion Assistant')}
       >
         <Sparkles className="w-6 h-6 text-luxury-accent animate-pulse-subtle" />
       </button>
@@ -83,7 +96,9 @@ export default function AIChatbot() {
               <div className="flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-luxury-accent" />
                 <div>
-                  <h3 className="font-serif font-bold text-base tracking-wide text-neutral-800 dark:text-neutral-100">AI Stylist Consult</h3>
+                  <h3 className="font-serif font-bold text-base tracking-wide text-neutral-800 dark:text-neutral-100">
+                    {t('chatbot.title', 'AI Fashion Assistant')}
+                  </h3>
                   <span className="text-[10px] text-emerald-500 uppercase tracking-widest font-semibold">Active Assistant</span>
                 </div>
               </div>
@@ -123,6 +138,7 @@ export default function AIChatbot() {
                               <Link 
                                 key={idx} 
                                 href={`/products/${p.id || p._id}`}
+                                locale={locale}
                                 className="flex items-center gap-3 p-2 bg-white dark:bg-neutral-950 rounded-sm border border-neutral-100 dark:border-neutral-900 hover:border-luxury-accent/30 transition-all cursor-pointer group"
                                 onClick={() => setIsOpen(false)}
                               >
@@ -167,7 +183,9 @@ export default function AIChatbot() {
             {/* Suggestions Chips */}
             {messages.length === 1 && (
               <div className="px-5 py-3 border-t border-neutral-100 dark:border-neutral-900">
-                <span className="text-[10px] uppercase tracking-widest text-neutral-400 block mb-2 font-medium">Common Stylist Queries</span>
+                <span className="text-[10px] uppercase tracking-widest text-neutral-400 block mb-2 font-medium">
+                  {t('chatbot.suggestedTitle', 'Suggested Questions:')}
+                </span>
                 <div className="flex flex-wrap gap-1.5">
                   {sampleSuggestions.map((s, idx) => (
                     <button
@@ -186,7 +204,7 @@ export default function AIChatbot() {
             <div className="p-4 border-t border-neutral-100 dark:border-neutral-900 bg-neutral-50 dark:bg-neutral-900/30 flex gap-2">
               <input
                 type="text"
-                placeholder="Ask about styling, order tracking, sizes..."
+                placeholder={t('chatbot.placeholder', 'Ask me anything about fashion or your order...')}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyPress}

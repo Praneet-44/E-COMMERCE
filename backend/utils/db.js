@@ -9,6 +9,29 @@ let useMock = true;
 
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/fashionhub';
 
+let dbCache = null;
+let dbCacheStamp = '';
+
+function readDb() {
+  try {
+    if (!fs.existsSync(DB_FILE_PATH)) return null;
+    const stat = fs.statSync(DB_FILE_PATH);
+    const stamp = `${stat.mtimeMs}:${stat.size}`;
+    if (dbCache && dbCacheStamp === stamp) return dbCache;
+    dbCache = JSON.parse(fs.readFileSync(DB_FILE_PATH, 'utf-8'));
+    dbCacheStamp = stamp;
+    return dbCache;
+  } catch (err) {
+    console.error('Error reading mock database file:', err);
+    return null;
+  }
+}
+
+function invalidateDbCache() {
+  dbCache = null;
+  dbCacheStamp = '';
+}
+
 function connectDB() {
   // If running on Vercel and using mock DB, ensure /tmp/db.json is initialized from DEFAULT_DB_PATH
   if (isVercel && !fs.existsSync(DB_FILE_PATH)) {
@@ -60,25 +83,16 @@ class MockModel {
   }
 
   _read() {
-    try {
-      if (!fs.existsSync(DB_FILE_PATH)) {
-        return [];
-      }
-      const data = JSON.parse(fs.readFileSync(DB_FILE_PATH, 'utf-8'));
-      return data[this.collectionName] || [];
-    } catch (err) {
-      console.error(`Error reading mock collection ${this.collectionName}:`, err);
-      return [];
-    }
+    const data = readDb();
+    return data ? (data[this.collectionName] || []) : [];
   }
 
   _write(dataList) {
     try {
-      const data = fs.existsSync(DB_FILE_PATH) 
-        ? JSON.parse(fs.readFileSync(DB_FILE_PATH, 'utf-8'))
-        : {};
+      const data = readDb() || {};
       data[this.collectionName] = dataList;
       fs.writeFileSync(DB_FILE_PATH, JSON.stringify(data, null, 2), 'utf-8');
+      invalidateDbCache();
     } catch (err) {
       console.error(`Error writing mock collection ${this.collectionName}:`, err);
     }

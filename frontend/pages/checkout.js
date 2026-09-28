@@ -3,9 +3,11 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { CreditCard, CheckCircle2, QrCode, AlertCircle, Loader2 } from 'lucide-react';
 import { api } from '../services/api';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Checkout() {
   const router = useRouter();
+  const { t, locale } = useLanguage();
   const [cartItems, setCartItems] = useState([]);
   const [couponCode, setCouponCode] = useState('');
   
@@ -195,7 +197,9 @@ export default function Checkout() {
       </Head>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 min-h-screen">
-        <h1 className="text-3xl font-serif font-bold text-neutral-800 dark:text-neutral-100 mb-10">Secure Checkout</h1>
+        <h1 className="text-3xl font-serif font-bold text-neutral-800 dark:text-neutral-100 mb-10">
+          {t('checkout.title', 'Checkout')}
+        </h1>
 
         <form onSubmit={triggerUPICheckout} className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
@@ -204,11 +208,15 @@ export default function Checkout() {
             
             {/* Billing details form */}
             <div className="space-y-5">
-              <h3 className="text-lg font-serif font-bold border-b border-neutral-100 dark:border-neutral-900 pb-3">1. Shipping & Billing details</h3>
+              <h3 className="text-lg font-serif font-bold border-b border-neutral-100 dark:border-neutral-900 pb-3">
+                1. {t('checkout.shippingDetails', 'Shipping Address')}
+              </h3>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-[10px] uppercase tracking-wider text-neutral-400 font-semibold block">Full Name</label>
+                  <label className="text-[10px] uppercase tracking-wider text-neutral-400 font-semibold block">
+                    {t('checkout.fullName', 'Full Name')}
+                  </label>
                   <input 
                     type="text" 
                     name="name" 

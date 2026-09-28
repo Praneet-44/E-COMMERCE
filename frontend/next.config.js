@@ -3,6 +3,11 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  i18n: {
+    locales: ['en', 'hi', 'ta'],
+    defaultLocale: 'en',
+    localeDetection: false,
+  },
   webpack: (config, { isServer }) => {
     // Add module resolution paths so backend files imported by API routes find node_modules
     config.resolve.modules = [

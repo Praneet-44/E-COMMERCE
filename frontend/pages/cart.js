@@ -4,9 +4,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Trash2, ShoppingBag, ArrowRight, Loader2, Tag } from 'lucide-react';
 import { api } from '../services/api';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Cart() {
   const router = useRouter();
+  const { t, locale } = useLanguage();
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [coupon, setCoupon] = useState('');
@@ -150,7 +152,9 @@ export default function Cart() {
       </Head>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 min-h-screen">
-        <h1 className="text-3xl font-serif font-bold text-neutral-800 dark:text-neutral-100 mb-10">Your Wardrobe Cart</h1>
+        <h1 className="text-3xl font-serif font-bold text-neutral-800 dark:text-neutral-100 mb-10">
+          {t('cart.title', 'Shopping Cart')}
+        </h1>
 
         {cartItems.length > 0 ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -232,11 +236,13 @@ export default function Cart() {
               
               {/* Checkout values Card */}
               <div className="border border-neutral-100 dark:border-neutral-900 bg-neutral-50 dark:bg-neutral-900/30 p-6 rounded-sm space-y-6">
-                <h3 className="font-serif font-bold text-lg border-b border-neutral-200 dark:border-neutral-800 pb-3">Order Summary</h3>
+                <h3 className="font-serif font-bold text-lg border-b border-neutral-200 dark:border-neutral-800 pb-3">
+                  {t('cart.summary', 'Order Summary')}
+                </h3>
                 
                 <div className="space-y-3.5 text-sm font-light">
                   <div className="flex justify-between">
-                    <span className="text-neutral-500">Subtotal</span>
+                    <span className="text-neutral-500">{t('cart.subtotal', 'Subtotal')}</span>
                     <span>₹{subtotal.toLocaleString('en-IN')}</span>
                   </div>
 
@@ -253,13 +259,13 @@ export default function Cart() {
                   </div>
 
                   <div className="flex justify-between">
-                    <span className="text-neutral-500">Shipping</span>
-                    <span>{shipping === 0 ? 'FREE' : `₹${shipping}`}</span>
+                    <span className="text-neutral-500">{t('cart.shipping', 'Shipping')}</span>
+                    <span>{shipping === 0 ? t('cart.freeShipping', 'FREE') : `₹${shipping}`}</span>
                   </div>
                 </div>
 
                 <div className="border-t border-neutral-200 dark:border-neutral-800 pt-4 flex justify-between font-bold text-base">
-                  <span>Estimated Total</span>
+                  <span>{t('cart.total', 'Total')}</span>
                   <span className="text-lg">₹{total.toLocaleString('en-IN')}</span>
                 </div>
 
@@ -267,7 +273,7 @@ export default function Cart() {
                   onClick={handleCheckoutRedirect}
                   className="w-full py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 text-xs font-bold uppercase tracking-widest hover:bg-luxury-accent hover:text-white dark:hover:bg-luxury-accent dark:hover:text-white rounded-sm shadow-md transition-all flex items-center justify-center gap-2"
                 >
-                  Proceed to Checkout
+                  {t('cart.proceedCheckout', 'Proceed to Checkout')}
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

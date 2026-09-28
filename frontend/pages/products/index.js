@@ -13,6 +13,7 @@ export default function Catalog() {
 
   // Filter and Sort states
   const [search, setSearch] = useState('');
+  const [searchInput, setSearchInput] = useState('');
   const [category, setCategory] = useState('');
   const [gender, setGender] = useState('');
   const [size, setSize] = useState('');
@@ -26,9 +27,18 @@ export default function Catalog() {
     if (router.isReady) {
       if (router.query.category) setCategory(router.query.category);
       if (router.query.gender) setGender(router.query.gender);
-      if (router.query.search) setSearch(router.query.search);
+      if (router.query.search) {
+        setSearch(router.query.search);
+        setSearchInput(router.query.search);
+      }
     }
   }, [router.isReady, router.query]);
+
+  // Debounce the search input so typing does not fire a request per keystroke
+  useEffect(() => {
+    const timer = setTimeout(() => setSearch(searchInput), 300);
+    return () => clearTimeout(timer);
+  }, [searchInput]);
 
   // Trigger search fetch on filter/sort changes
   useEffect(() => {
@@ -63,6 +73,7 @@ export default function Catalog() {
     setMinPrice('');
     setMaxPrice('');
     setSearch('');
+    setSearchInput('');
     setSort('newest');
     router.replace('/products', undefined, { shallow: true });
   };
@@ -92,8 +103,8 @@ export default function Catalog() {
               <input 
                 type="text" 
                 placeholder="Search wardrobe..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                value={searchInput}
+                onChange={(e) => setSearchInput(e.target.value)}
                 className="w-full sm:w-64 pl-10 pr-4 py-2 border border-neutral-200 dark:border-neutral-800 bg-transparent rounded-md text-sm outline-none text-neutral-800 dark:text-neutral-100 focus:border-luxury-accent transition-colors"
               />
               <Search className="w-4 h-4 text-neutral-400 absolute left-3.5 top-3" />

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Sparkles } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function ProductCard({ product }) {
+  const { locale } = useLanguage();
   const [hovered, setHovered] = useState(false);
   
   // Destructure product
@@ -22,7 +23,7 @@ export default function ProductCard({ product }) {
       onMouseLeave={() => setHovered(false)}
     >
       {/* Product Image Container */}
-      <Link href={`/products/${productId}`} className="relative block overflow-hidden aspect-[3/4] bg-neutral-100 dark:bg-neutral-800">
+      <Link href={`/products/${productId}`} locale={locale} className="relative block overflow-hidden aspect-[3/4] bg-neutral-100 dark:bg-neutral-800">
         {discount > 0 && (
           <span className="absolute top-4 left-4 z-10 bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-sm shadow-sm border border-luxury-accent/20">
             -{discount}% OFF
@@ -48,7 +49,7 @@ export default function ProductCard({ product }) {
           <span className="text-[10px] uppercase tracking-widest text-neutral-400 font-medium mb-1.5 block">
             {category}
           </span>
-          <Link href={`/products/${productId}`} className="hover:text-luxury-accent transition-colors">
+          <Link href={`/products/${productId}`} locale={locale} className="hover:text-luxury-accent transition-colors">
             <h3 className="font-serif text-base font-semibold leading-tight text-neutral-800 dark:text-neutral-100 line-clamp-1 mb-2">
               {name}
             </h3>

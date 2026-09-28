@@ -41,12 +41,13 @@ export default function ProductDetail() {
     const loadData = async () => {
       setLoading(true);
       try {
-        const prodData = await api.products.getById(id);
+        const [prodData, reviewData] = await Promise.all([
+          api.products.getById(id),
+          api.reviews.get(id).catch(() => []),
+        ]);
         setProduct(prodData);
         if (prodData.sizes && prodData.sizes.length > 0) setSelectedSize(prodData.sizes[0]);
         if (prodData.colors && prodData.colors.length > 0) setSelectedColor(prodData.colors[0]);
-
-        const reviewData = await api.reviews.get(id);
         setReviews(reviewData);
 
         // Check if item is wishlisted

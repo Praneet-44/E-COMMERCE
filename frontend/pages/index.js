@@ -4,8 +4,10 @@ import Head from 'next/head';
 import { ArrowRight, Star, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import { api } from '../services/api';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Home() {
+  const { t, locale } = useLanguage();
   const [products, setProducts] = useState([]);
   const [reviewIndex, setReviewIndex] = useState(0);
 
@@ -75,18 +77,17 @@ export default function Home() {
           {/* Hero Text Content */}
           <div className="relative max-w-5xl mx-auto px-6 text-center text-white space-y-6">
             <span className="text-[11px] uppercase tracking-[0.3em] text-luxury-accent font-semibold block animate-fade-in">
-              Seasonal Archive Vol. 04
+              FashionHub Collection
             </span>
             <h1 className="font-serif text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] animate-slide-up text-white">
-              Understated Luxury.<br />
-              <span className="text-luxury-accent italic font-light">Meticulously</span> Crafted.
+              {t('home.heroTitle', 'Elegance Redefined')}
             </h1>
             <p className="max-w-xl mx-auto text-sm md:text-base text-neutral-300 font-light leading-relaxed animate-fade-in">
-              Explore essential silhouettes combining premium raw textiles, modern cuts, and tailored AI styling assistance.
+              {t('home.heroSubtitle', 'Discover our luxury collection designed for timeless style, ultimate comfort, and modern sophistication.')}
             </p>
             <div className="pt-4 animate-slide-up">
-              <Link href="/products" className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-neutral-950 hover:bg-luxury-accent hover:text-white transition-all text-xs font-semibold uppercase tracking-widest rounded-sm shadow-lg">
-                Shop Collection
+              <Link href="/products" locale={locale} className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-neutral-950 hover:bg-luxury-accent hover:text-white transition-all text-xs font-semibold uppercase tracking-widest rounded-sm shadow-lg">
+                {t('home.shopNow', 'Shop Now')}
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
